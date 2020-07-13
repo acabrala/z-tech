@@ -1,0 +1,8 @@
+FROM postgres
+
+ENV POSTGRES_PASSWORD 123456
+
+ENV POSTGRES_DB z-tech 
+
+ENV POSTGRES_USER postgres
+

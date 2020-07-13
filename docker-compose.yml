@@ -1,0 +1,36 @@
+version: "3.7"
+
+services: 
+  db:
+    build: 
+      context: .
+      dockerfile: ./docker/postgres.dockerfile
+    restart: always
+    environment: 
+      POSTGRES_PASSWORD: "123456"
+      POSTGRES_DB: "z-tech"
+      POSTGRES_USER: "postgres"
+    ports: 
+      - "5432"
+    networks: 
+      - app-connect
+
+  z-tech-backend-processo-node:
+    build: .
+    container_name: z-tech-backend
+    volumes: 
+      - ./src:/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    restart: always
+    ports: 
+      - "3000:3000"
+    networks: 
+      - app-connect
+    command: npm run dev
+    depends_on: 
+      - db
+    
+
+networks: 
+  app-connect:
+    driver: bridge
