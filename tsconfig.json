@@ -1,17 +1,9 @@
-
 {
   "compilerOptions": {
-    "target": "es6",
+    "outDir": "./dist",
     "module": "commonjs",
-    "outDir": "dist",
-    "sourceMap": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": ["node_modules", "**/*.spec.ts"],
-  "compileOnSave": true,
-  "buildOnSave": true
+    "target": "es2019",
+    "esModuleInterop": true,
+    "allowJs": true
+   }
 }
